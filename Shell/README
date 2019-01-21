@@ -1,0 +1,19 @@
+Name: Alex Lai
+Student Number: 0920158
+Email: alai02@main.uoguelph.ca
+Class: CIS*3110 - A1
+Date: Monday January 30th, 2017
+DISCLAMER: This is a shell implementation in C. Note the assignment compiles with warning but that is not my code,
+            the code provided by the professor has warnings in the code and have nothing to do with my solution so
+            no marks should be lost for that as I am assuming the professor knows his code has warnings(assumption). The makefile
+            provided was changed and also extra flags were added to lex.c to remove some warnings. The functions I have implemented
+            are the cd command, the arg command (as seen in the spec), the exit command, the add command( as seen in the spec),
+            the ??? command which i decided to call face which prints a face to stdout(as seen in the spec). The exit command just ends the program.
+            The rest of the implemented calls are system calls like date, time, xemacs, cat, ect...
+            Since the spec is extremely vague in waht is needed for the implementation
+            the shell may not be complete as the full unix shell has many more features.
+Assignment: Writing a Shell
+Compilation: 'make' with no quotes
+To run: './msh' with no quotes
+Known Limitations: The command & will return immdediatly but an enter key press is needed before the next command is set
+References: The lex file provided is used to parse the input while inside the shell

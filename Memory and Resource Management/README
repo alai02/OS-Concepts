@@ -1,0 +1,51 @@
+
+To compile: type 'make' into the terminal when inside the project directory named A3
+To run: to run the first program type: './dine (num philosophers) (num eat time)' where you decide what the 2 variables are
+	to run the second program type './holes assets/testfile1' or include a testfile of your own. 
+
+About dine.c: 
+	This program uses concurrent programming concepts to solve the dining philosophers problem. 
+
+About holes.c:
+	Was unable to complete this program. Only attempted the first fit. 
+
+Known Limitations: The second program does not work fully. Had a bug in my runningHead queue. 
+
+Test code: 
+
+****TEST 1*****
+This test is testing 4 philosphers at the table, where each philsopher eats exactly 3 times before the program exits. 
+
+Some sample output for dining philsophers.
+A3$ make
+gcc -o dine dine.c -pthread
+gcc -o holes holes.c
+A3$ ./dine 4 3
+Philosopher 2 is thinking
+Philosopher 2 is eating
+Philosopher 2 is thinking
+Philosopher 2 is eating
+Philosopher 2 is thinking
+Philosopher 2 is eating
+Philosopher 2 is thinking
+Philosopher 3 is thinking
+Philosopher 3 is eating
+Philosopher 3 is thinking
+Philosopher 3 is eating
+Philosopher 3 is thinking
+Philosopher 3 is eating
+Philosopher 3 is thinking
+Philosopher 1 is thinking
+Philosopher 1 is eating
+Philosopher 1 is thinking
+Philosopher 1 is eating
+Philosopher 1 is thinking
+Philosopher 1 is eating
+Philosopher 1 is thinking
+Philosopher 4 is thinking
+Philosopher 4 is eating
+Philosopher 4 is thinking
+Philosopher 4 is eating
+Philosopher 4 is thinking
+Philosopher 4 is eating
+Philosopher 4 is thinking
