@@ -1,8 +1,6 @@
-Name: Alex Lai
-Student Number: 0920158
-Email: alai02@main.uoguelph.ca
-Class: CIS*3110 - A1
-Date: Monday January 30th, 2017
+
+Date Created: Monday January 30th, 2017
+
 DISCLAMER: This is a shell implementation in C. Note the assignment compiles with warning but that is not my code,
             the code provided by the professor has warnings in the code and have nothing to do with my solution so
             no marks should be lost for that as I am assuming the professor knows his code has warnings(assumption). The makefile
@@ -12,7 +10,7 @@ DISCLAMER: This is a shell implementation in C. Note the assignment compiles wit
             The rest of the implemented calls are system calls like date, time, xemacs, cat, ect...
             Since the spec is extremely vague in waht is needed for the implementation
             the shell may not be complete as the full unix shell has many more features.
-Assignment: Writing a Shell
+
 Compilation: 'make' with no quotes
 To run: './msh' with no quotes
 Known Limitations: The command & will return immdediatly but an enter key press is needed before the next command is set
