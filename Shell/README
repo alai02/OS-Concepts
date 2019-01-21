@@ -10,6 +10,6 @@ Known Limitations: The command & will return immdediatly but an enter key press 
 References: The lex file provided is used to parse the input while inside the shell
 
 Disclamer: This is a shell implementation in C. The functions I have implemented
-            are the cd command, the arg command (as seen in the spec), the exit command, the add command( as seen in the spec),
-            the ??? command which i decided to call face which prints a face to stdout(as seen in the spec). The exit command just ends the program.
-            The rest of the implemented calls are system calls like date, time, xemacs, cat, ect...       
+            are the cd command, the arg command, the exit command, the add command,
+            the ??? command which i decided to call face which prints a face to stdout. The exit command ends the program.
+            Also the rest of the implemented calls are system calls like date, time, xemacs, cat, ect...       
