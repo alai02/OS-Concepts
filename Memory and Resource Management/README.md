@@ -7,5 +7,5 @@
 	make
 
 ## Usage 
-	to run the first program type: './dine (# philosophers) (# eat time)' where you decide what the 2 variables are
-	to run the second program type './holes assets/testfile1' or include a testfile of your own. 
+	to run the dine program enter: ./dine (# philosophers) (# eat time)
+	to run the holes program enter: ./holes assets/test_file.txt (or include a testfile of your own)
