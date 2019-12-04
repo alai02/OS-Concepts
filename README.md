@@ -1,3 +1,3 @@
-# Operating System Concepts implemented in C
+# Operating System Concepts
 
-Various programs covering OS topics
+Various programs covering OS topics written in C
