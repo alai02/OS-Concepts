@@ -1,1 +1,2 @@
-# CPU sheduling simulation using various OS scheduling algorithms
+# CPU sheduling simulations using common scheduling algorithms
+
