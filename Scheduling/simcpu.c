@@ -84,43 +84,57 @@ void fcfs(Thread* threadQueue, schedulerInfo* thisSim, bool verbose, bool detail
    int tempArrival, tempID, tempPID;
    int tempCPU[MAX_BURST], tempIO[MAX_BURST];
    int totalTime = 0;
-   /*
+   
    for(i = 0; i < threadQueue->threadCount-1; i++){
+
        for(j = i+1; j < threadQueue->threadCount; j++){
+
            if(threadQueue[i].at > threadQueue[j].at){
+               
                printf("Swapping: t%d of p%d with t%d of p%d\n", threadQueue[i].pID, threadQueue[i].ID, threadQueue[j].pID, threadQueue[j].ID);
                tempArrival = threadQueue[i].at;
                tempID = threadQueue[i].ID;
                tempPID = threadQueue[i].pID;
+
                for(k = 0; k < threadQueue[i].numBursts; k++){
                    tempCPU[k] = threadQueue[i].cpuBurst[k];
                    tempIO[k] = threadQueue[i].ioBurst[k];
                }
+
                threadQueue[i].ID = threadQueue[j].ID;
                threadQueue[i].at = threadQueue[j].at;
                threadQueue[i].pID = threadQueue[j].pID;
+               
                for(k = 0; k < threadQueue[j].numBursts; k++){
                    threadQueue[i].cpuBurst[k]  = threadQueue[j].cpuBurst[k];
                    threadQueue[i].ioBurst[k] = threadQueue[j].ioBurst[k];
                }
+               
                threadQueue[j].ID = tempID;
                threadQueue[j].at = tempArrival;
                threadQueue[j].pID = tempPID;
+
                for(k = 0; k < threadQueue[i].numBursts; k++){
                    threadQueue[j].cpuBurst[k]  = tempCPU[k];
                    threadQueue[j].ioBurst[k] = tempIO[k];
                }
+
            }
        }
    }
+
+
    for(i = 0; i < count; i++){
        threadQueue[i].tTime = totalTime;
    }
-   */
+   
 
    if(verbose == true){
+
        int threadTime = 0;
+       
        for(i = 0; i < threadQueue->threadCount; i++){
+       
            if(threadQueue[i].at == i){
                printf("At time %d: Thread %d of Process %d moves from new to ready\n", i, threadQueue[i].ID, threadQueue[i].pID);
                threadQueue[i].st = i;
@@ -128,6 +142,7 @@ void fcfs(Thread* threadQueue, schedulerInfo* thisSim, bool verbose, bool detail
            if(threadQueue[i].at > i){
                printf("At time %d: Thread %d of Process %d moves from ready to running\n", i, threadQueue[i].ID, threadQueue[i].pID);
            }
+
            for(j = 0; j < threadQueue[i].numBursts; j++){
                threadTime += threadQueue[i].cpuBurst[j];
                if(threadQueue[i].numBursts +1 != j){
@@ -135,6 +150,7 @@ void fcfs(Thread* threadQueue, schedulerInfo* thisSim, bool verbose, bool detail
                    threadTime += threadQueue[i].ioBurst[j];
                }
            }
+
            if(i > threadQueue[i].at){
                printf("At time %d: Thread %d of Process %d moves from running to terminated\n", i, threadQueue[i].ID, threadQueue[i].pID);
                threadQueue[i].ft = i;
@@ -143,6 +159,7 @@ void fcfs(Thread* threadQueue, schedulerInfo* thisSim, bool verbose, bool detail
            }
        }
    }
+
    if(detailed == true){
        for(i = 0; i < threadQueue->threadCount; i++){
            printf("Thread %d of Process %d: \n", threadQueue[i].ID, threadQueue[i].pID);
@@ -181,32 +198,40 @@ void parseData(bool verbose, bool detailed){
      Thread* threads = malloc(sizeof(Thread*)*MAX_THREADS*thisSim->numProcesses);
     int threadCount = 0;
     while ((read = getline(&line, &len, stdin)) != -1) {
+
         token = strtok(line, s);
         while(token != NULL){
+
             data[i++] = atoi(token);
             token = strtok(NULL, s);
         }
+
         initSim++;
+
         if(initSim == 1){
             thisSim->numProcesses = data[0];
             thisSim->tSwitch = data[1];
             thisSim->pSwitch = data[2];
         }
+        
         if((i == 2 && lastI == 2) || initSim == 2) {
             threads[threadCount].pID= data[0];
             threadCount++;
         } else if (i == 3 && lastI == 2){
+
             threads[threadCount].ID= data[0];
             threads[threadCount].at = data[1];
             threads[threadCount].numBursts = data[2];
             threadCount++;
         } else if(i == 2 && lastI == 3) {
+
             if(initSim != 1){
                 threads[threadCount].cpuBurst[bCount] = data[1];
                 threadCount++;
                 bCount = 0;
                 ioCount = 0;
             }
+
         } else if (i == 3 && lastI == 3) {
             threads[threadCount].cpuBurst[bCount] = data[1];
             threads[threadCount].ioBurst[ioCount] = data[2];
@@ -217,7 +242,12 @@ void parseData(bool verbose, bool detailed){
          lastI = i;
          i = 0;
      }
+
+     
      threads->threadCount = threadCount;
+     
      fcfs(threads, thisSim, verbose, detailed);
+     
+     
      return;
 }
